@@ -1,0 +1,23 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  receiver: 'gmail-notifications'
+
+receivers:
+- name: 'gmail-notifications'
+  email_configs:
+  - to: mdbf42@gmail.com
+    from: mdbf42@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username: mdbf42@gmail.com
+    auth_identity: mdbf42@gmail.com
+    auth_password: 
+    send_resolved: true
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']

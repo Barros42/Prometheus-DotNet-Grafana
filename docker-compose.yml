@@ -5,25 +5,41 @@ services:
     container_name: dotnet-barros
     build: dotnet/dotnet
     ports:
-      - 80:80
-    mem_limit: "50mb"
-    cpus: 0.00001
+      - 3000:80
+    networks:
+      - promnet
 
   prometheus:
     image: prom/prometheus:v2.30.3
     container_name: prometheus-barros
     ports:
-      - 9090:9090
+      - 3001:9090
+    networks:
+      - promnet
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
-    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml 
+
+  alertmanager:
+    image: prom/alertmanager
+    container_name: alertmanager-barros
+    ports:
+      - 3002:9093
+    networks:
+      - promnet
+    volumes:
+      - ./alertmanager:/etc/alertmanager
+      - alertmanager-data:/alertmanager
+    command: --config.file=/etc/alertmanager/alertmanager.yml 
 
   grafana:
-      image: grafana/grafana:7.5.7
+      image: grafana/grafana
       container_name: grafana-barros
       ports:
-        - 3000:3000
+        - 3003:3000
+      networks:
+      - promnet
       restart: unless-stopped
       volumes:
         - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
@@ -32,3 +48,8 @@ services:
 volumes:
   prometheus-data:
   grafana-data:
+  alertmanager-data:
+
+networks:
+  promnet:
+    driver: bridge

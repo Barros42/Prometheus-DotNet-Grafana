@@ -11,11 +11,26 @@
     <PackageReference Include="prometheus-net" Version="7.0.0" />
     <PackageReference Include="prometheus-net.AspNetCore" Version="7.0.0" />
     <PackageReference Include="prometheus-net.SystemMetrics" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="prometheus-net" />
     <None Remove="prometheus-net.AspNetCore" />
     <None Remove="prometheus-net.SystemMetrics" />
+    <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+    <None Remove="Repositories\" />
+    <None Remove="Context\" />
+    <None Remove="Domain\" />
+    <None Remove="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Context\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 </Project>
