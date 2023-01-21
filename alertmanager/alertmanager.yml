@@ -7,11 +7,11 @@ route:
 
 receivers:
 - name: 'gmail-notifications'
-  email_configs:
+  email_configs: # Replace With Your Data
   - to: mdbf42@gmail.com
     from: mdbf42@gmail.com
     smarthost: smtp.gmail.com:587
-    auth_username: mdbf42@gmail.com
+    auth_username: mdbf42@gmail.com 
     auth_identity: mdbf42@gmail.com
     auth_password: 
     send_resolved: true

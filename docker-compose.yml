@@ -7,7 +7,7 @@ services:
     ports:
       - 3000:80
     networks:
-      - promnet
+      - barros-network
 
   prometheus:
     image: prom/prometheus:v2.30.3
@@ -15,7 +15,7 @@ services:
     ports:
       - 3001:9090
     networks:
-      - promnet
+      - barros-network
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
@@ -27,7 +27,7 @@ services:
     ports:
       - 3002:9093
     networks:
-      - promnet
+      - barros-network
     volumes:
       - ./alertmanager:/etc/alertmanager
       - alertmanager-data:/alertmanager
@@ -39,7 +39,7 @@ services:
       ports:
         - 3003:3000
       networks:
-      - promnet
+      - barros-network
       restart: unless-stopped
       volumes:
         - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
@@ -51,5 +51,5 @@ volumes:
   alertmanager-data:
 
 networks:
-  promnet:
+  barros-network:
     driver: bridge

@@ -6,6 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="prometheus-net" Version="7.0.0" />
@@ -23,12 +26,14 @@
     <None Remove="Context\" />
     <None Remove="Domain\" />
     <None Remove="Helpers\" />
+    <None Remove="Controllers\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
     <Folder Include="Context\" />
     <Folder Include="Domain\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Controllers\Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />

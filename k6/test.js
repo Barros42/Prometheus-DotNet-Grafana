@@ -33,6 +33,17 @@ export default function () {
     email: 'mdbf42@gmail.com'
   })
 
+  const paymentPayload = JSON.stringify({
+    value: "42000",
+    cardNumber: 1
+  })
+
+  const paymentPayloadWithError = JSON.stringify({
+    value: "42000",
+    cardNumber: 0
+  })
+
+
   const params = {
     headers: {
       'Content-Type': 'application/json',
@@ -41,10 +52,16 @@ export default function () {
 
   // Break The Payload Sometimes
 
-  const shouldBreak = !!Math.round(Math.random())
+  let randUser = Math.floor(Math.random() * 2000);
+  const shouldBreakUser = (randUser < 2)
 
-  const body = shouldBreak ? payloadWithError : payload
+  let randPayment = Math.floor(Math.random() * 1000);
+  const shouldBreakPayment = (randPayment < 10)
 
-  http.post('http://localhost:3000/User', body, params);
+  const bodyUser = shouldBreakUser ? payloadWithError : payload
+  const bodyPayment = shouldBreakPayment ? paymentPayloadWithError : paymentPayload
+
+  http.post('http://localhost:3000/User', bodyUser, params);
+  http.post('http://localhost:3000/Payment', bodyPayment, params);
   http.get('http://localhost:3000/User');
 }
