@@ -29,6 +29,7 @@ Go to the root folder of this project and simply run the command below:
 `docker-compose up -d`
 
 ## 🛎️  Alerts! 
+
 To receive alerts by e-mail, you should change the information in [this file here](https://github.com/Barros42/Prometheus---DotNet---Grafana/blob/master/alertmanager/alertmanager.yml)
 
 ## 🚀 Run a stress test with K6
