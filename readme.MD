@@ -5,6 +5,16 @@ This repository was made to a presentation in .NET CONF 2023 that happened in Ca
 
 I used this repository to demonstrate how to instrument and observe a simple .NET API.
 
+## ☕ The stack
+- Docker
+- Docker Compose
+- .NET (Inside Docker)
+- K6 (Inside Docker)
+- Prometheus (Inside Docker)
+- AlertManager (Inside Docker)
+- Grafana (Inside Docker)
+
+
 ## 💻  Prerequisites
 
 Before you start, check if you have all the prerequisites:
@@ -17,6 +27,10 @@ Before you start, check if you have all the prerequisites:
 Go to the root folder of this project and simply run the command below:
 
 `docker-compose up -d`
+
+## 🛎️  Alerts!
+
+To receive alerts by e-mail, you should change the information in [this file here](https://github.com/Barros42/Prometheus---DotNet---Grafana/blob/master/alertmanager/alertmanager.yml)
 
 ## 🚀 Run a stress test with K6
 
