@@ -52,7 +52,7 @@ export default function () {
 
   // Break The Payload Sometimes
 
-  let randUser = Math.floor(Math.random() * 2000);
+  let randUser = Math.floor(Math.random() * 1000);
   const shouldBreakUser = (randUser < 2)
 
   let randPayment = Math.floor(Math.random() * 1000);

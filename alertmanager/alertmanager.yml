@@ -13,7 +13,7 @@ receivers:
     smarthost: smtp.gmail.com:587
     auth_username: mdbf42@gmail.com 
     auth_identity: mdbf42@gmail.com
-    auth_password: ""
+    auth_password: "ccyv ppyz lnpd hmmh"
     send_resolved: true
 inhibit_rules:
   - source_match:
